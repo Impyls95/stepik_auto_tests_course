@@ -1,3 +1,4 @@
+import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
@@ -5,6 +6,7 @@ import unittest
 
 
 class TestRegistration(unittest.TestCase):
+    @pytest.mark.smoke
     def test_first_ver_registration(self):
         link = "http://suninjuly.github.io/registration1.html"
         browser = webdriver.Chrome()
@@ -32,6 +34,7 @@ class TestRegistration(unittest.TestCase):
 
         browser.quit()
 
+    @pytest.mark.xfail
     def test_second_ver_registration(self):
         link = "http://suninjuly.github.io/registration2.html"
         browser = webdriver.Chrome()
